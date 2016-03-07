@@ -1,0 +1,78 @@
+\documentclass[9pt,oneside]{amsart}
+%\usepackage{tweaklist}
+\usepackage{url}
+\usepackage{cancel}
+\usepackage{xspace}
+\usepackage{graphicx}
+\usepackage{multicol}
+\usepackage{subfig}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[a4paper,width=170mm,top=18mm,bottom=22mm,includeheadfoot]{geometry}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{verbatim}
+\usepackage{caption}
+\usepackage{natbib}
+\usepackage{float}
+\usepackage{pdflscape}
+\usepackage{mathtools}
+\usepackage[usenames,dvipsnames]{xcolor}
+\usepackage{afterpage}
+\usepackage{tikz}
+\usepackage{lipsum}
+
+\newcommand{\hcancel}[1]{%
+    \tikz[baseline=(tocancel.base)]{
+        \node[inner sep=0pt,outer sep=0pt] (tocancel) {#1};
+        \draw[black] (tocancel.south west) -- (tocancel.north east);
+    }%
+}%
+
+\definecolor{lightyellow}{rgb}{1,0.98,0.9}
+\definecolor{lightblue}{rgb}{0.9,0.9,0.98}
+\definecolor{lightpink}{rgb}{1,0.94,0.95}
+
+\definecolor{initial}{rgb}{.7,0.0,0.0}      % red
+\definecolor{reviewed}{rgb}{0.0, 0.0, 0.7}  % blue
+%
+\providecommand{\toReview}[1]{{\color{initial}#1}}
+\providecommand{\toQuality}[1]{{\color{reviewed}#1}}
+%\providecommand{\cellcolor}[1]{}
+
+\newcommand{\firsthomesteadblock}{\ensuremath{\mathit{TBA}}}
+
+\DeclarePairedDelimiter{\ceil}{\lceil}{\rceil}
+\newcommand*\eg{e.g.\@\xspace}
+\newcommand*\Eg{e.g.\@\xspace}
+\newcommand*\ie{i.e.\@\xspace}
+%\renewcommand{\itemhook}{\setlength{\topsep}{0pt}  \setlength{\itemsep}{0pt}\setlength{\leftmargin}{15pt}}
+
+\title{Votesapp: On Issues Arising With Blockchain Voting \\ {\smaller \textbf{Draft}, \today}}
+\author{
+    Afri Schoedon\\
+    Co-Founder \& Blockchain Architect, Votesapp\\
+    afri@votesapp.net
+}
+\begin{document}
+
+\pagecolor{lightblue}
+%\pagecolor{lightyellow}
+%\pagecolor{lightpink}
+
+\begin{abstract}
+\toReview{To do abstract.}
+\end{abstract}
+
+\maketitle
+
+\setlength{\columnsep}{20pt}
+\begin{multicols}{2}
+
+\section{Motivation}\label{sec:motivation}
+
+\toReview{To do motivation. \lipsum}
+
+\end{multicols}
+
+\end{document}
