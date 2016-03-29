@@ -19,10 +19,9 @@
 \usepackage[usenames,dvipsnames]{xcolor}
 \usepackage{afterpage}
 \usepackage{tikz}
-\usepackage{csquotes}
-\usepackage[english,french,german]{babel}
 \usepackage[utf8]{inputenc}
-\usepackage{lipsum}
+\usepackage{csquotes}
+\usepackage{amsmath}
 
 \newcommand{\hcancel}[1]{
     \tikz[baseline=(tocancel.base)]{
@@ -48,11 +47,15 @@
 \newcommand*\Eg{e.g.\@\xspace}
 \newcommand*\ie{i.e.\@\xspace}
 
-\title{Votesapp: On Issues Arising With Blockchain Voting \\ {\smaller \textbf{Position Paper, Early Draft}, \today}}
+\title{On Issues Arising With Blockchain Voting \\ {\smaller \today}}
 \author{
-    Afri Schoedon\\
-    Co-Founder \& Blockchain Architect, Votesapp\\
-    afri@votesapp.net
+    Alexander Schoedon
+}
+\author{
+    Robert David McLeod
+}
+\author{
+    Johannes Ponader
 }
 \begin{document}
 
@@ -67,52 +70,95 @@
 \begin{multicols}{2}
 
 \section{Motivation}\label{sec:motivation}
-
-% decentralize democratic processes [VARSHNEYA~et~al.~2015]
-% promote election fairness [VARSHNEYA~et~al.~2015]
-% promote online voting security [VARSHNEYA~et~al.~2015]
-% motivation: electronic voting machines: hardware + software attacks [VARSHNEYA~et~al.~2015]
-% motivation: voting authority centralization [VARSHNEYA~et~al.~2015]
-% motivation: trusted central auditing authority [VARSHNEYA~et~al.~2015]
-% motivation: increase security [VARSHNEYA~et~al.~2015]
+\enquote{Everything that can be decentralized, will be decentralized.} -- \textit{Johnston's Law} [JOHNSTON~et~al.~2013].\par
+Distributed ledgers have the potential to disrupt the way society works. Not only the banking or the financial technology sector is affected by this new technology called \textit{blockchain} but almost everything from the internet of decenthings to distributed governance. Regarding the focus of this paper, blockchain has the potential to revolutionize voting, direct democracy and liquid democracy approaches. The idea is simply to decentralize democratic processes, promote election fairness and online voting security [VARSHNEYA~et~al.~2015].\par
+Known electronic voting systems are usually proprietary and centralized, e.g., a single entity controls everything: the hardware, the code base, the data base, system outputs and even the monitoring tools [NOIZAT~2014]. Adam Kaleb Ernest of the \textsc{Follow My Vote} project describes the electronic voting process in the United States as \textit{black box voting} and links the lack of transparency directly to lower voter turnouts [ERNEST~2014]. In addition, the used systems have been vulnerable for software and hardware attacks for a long time. Sufficient alternatives still have to be developed [VARSHNEYA~et~al.~2015].\par
+It's about time to talk about 21st centurary approaches to voting: technology which will be decentralized and legislation which will be distributed to pave the way for a modern society [ROCKWELL~2014].
 
 \section{On blockchain voting}
+Will blockchain create the base technology for democratic applications? The answer is still outstanding. A lot of questions arise regarding both the voting process and the underlying technology. A lot of them remain unanswered. This paper tries to ask all questions and -- where possible -- gather and evaluate potential approaches to solve them.
 
 \subsection{Why blockchain matters}
+After Satoshi Nakamoto presented the first concept of a fully decentralized and trustless currency \textsc{Bitcoin (BTC)} in 2008 [NAKAMOTO~2008] and published the first blockchain protocol reference implementation in 2009, many years have passed until the underlying technology seriously got recognized as a game changer by the technology scene. Blockchain tools today are considered and valued with a high potential. The current emerge of blockchain related start-ups aswell as global operating coorperations entering the market is often compared to the beginning of the internet [ÉPIÉ~et~al.~2015].\par
+The impact on society, industry and governance hardly can be estimated. Suddenly, transactions can share information without any middle man. The blockchain is owned, run  and monitored by everyone, but controlled by anyone [ÉPIÉ~et~al.~2015].\par
+The non-hierarchical, self-organizing, peer-to-peer collaboration nature of blockchain ecosystems within communitarian network structures is the foundation for both censorship resistance and full transparency, which leaves no room for any tampering. This is a big feature that nothing but blockchains can provide [SCOTT~2016] [KAYE~2016].
 
-\subsection{Blockchain voting vs votechains}
-Voting is a key functionality of blockchain technology. The underlying consensus protocols on most distritubted peer-to-peer solutions always have to include ways to update protocols and restore consensus upon disputes. A prominent example is the Bitcoin Improvement Proposal \#BIP34, of the infamous crypto-currency Bitcoin [NAKAMOTO~2008], proposing miner behaviour on softforking mechanics.\par
+\subsection{Blockchain 2.0 technology}
+In 2013 so called \textit{Bitcoin 2.0} projects or \textit{blockchain 2.0} technologies emerged. They aim to provide collectively maintained decentralized ledgers that record things other than currency transactions and store all manner of diverse data, including voting decisions [SCOTT~2016].\par
+At the cutting edge of the scene are smart contracts, small scripts on the blockchain, which participants can interact with. The new contract-orientated development paradigm allows for a switch in terminology: the \textit{trustless} nature of transactions on the blockchain moves aside for \textit{trust-enabling} transparent scripts doing exactly as programmed [SCOTT~2016].\par
+Among the most innovative blockchain 2.0 technologies of the recent years are \textsc{Bitshares (BTS)}, \textsc{Ripple (XRP)}, \textsc{Nxt (NXT)} and \textsc{Ethereum (ETH)}.\par
+Bitshares offers a stack of financial services including exchange and banking on a blockchain. It is mainly trageted at next-level financial applications and developed the concept of decentralized autonomous coorperations (\textsc{DAC}) which operate on the blockchain, issue tokes and payout shareholders as programmed.\par
+Ripple is a commercial solution for the financial technology sector. Its distributed financial technology allows for banks to directly transact with each other without the need for a central counterparty or correspondent.\par
+Nxt improves the financial technology, crowdfunding and governance industries by providing powerful, modular toolsets to build any application on top of the blockchain.\par
+Blockchain 2.0 projects are often considered to pave the way for the \textit{Web 3.0} which will be decentralized. Ethereum claims to be \enquote{the way the internet was supposed to work}. \enquote{What Bitcoin does for payments, Ethereum does for anything that can be programmed.}, states Grace Caffyn from Coindesk referring to the underlying technology. The Ethereum blockchain contains a distributed virtual machine (\textsc{EVM}) which enables code on the blockchain to be executed. Whereas every blockchain technology offers it's own, often limited scripting languages, the revolutionary concept behind the EVM is the lifting of all limits by implementing a \textit{turing-complete} programming language. This allows -- in theory -- to build everything on top of the Ethereum blockchain technology: Smart contracts implement the logic, the blockchain manages the decentralized consensus and users can interact with trustable decentralized applications (\textsc{DApps}) [ÉPIÉ~et~al.~2015].
+
+\subsection{Blockchain voting versus votechains}
+Voting is a key functionality of blockchain technology. The underlying consensus protocols on most distritubted peer-to-peer solutions always have to include ways to update protocols and restore consensus upon disputes. A prominent example is the Bitcoin Improvement Proposal \#BIP34, of the crypto-currency \textsc{Bitcoin} [NAKAMOTO~2008], proposing miner behaviour on softforking mechanics.\par
 This is voting on a very technical level and not considered part of this paper.\par
-The following projects and voting references rather focus on applications on top of blockchains, enabling democratic participation in any kind of groups or societies.
+The following projects and voting references rather focus on applications or services on top of blockchains, enabling democratic participation in any kind of groups, communities or societies.
+
+\subsection{Requirements for voting applications}
+Electronic or online voting has to follow the same high standards as traditional paper or offline voting processes do. Necessary key feauteres and requirements will be gathered below. Existing approaches to blockchain based voting applications will be checked against these criteria.\par
+How can elections be auditable and anonymous? How can a voter's identity be private but verifiable? [VARSHNEYA~et~al.~2015] aswell as [ERNEST~2016] and [BORGSTRUP~2014] define following key features for blockchain voting.
+\begin{itemize}
+\item \textbf{Accessible}. Everyone should be able to use it without the introduction of any barriers.
+\item \textbf{Anonymous}. Privacy of voters has to be protected and it should be infeasable to determine identity behind a vote.
+\item \textbf{Authenticated}. The identity on the blockchain must be unique, and provable certified to vote to ensure only registered voters can vote.
+\item \textbf{Secure}. It also has to be impossible to decrypt voter's identities or to link voter's to voting behaviour. All communications should be encrypted.
+\item \textbf{Integer}. It should not be possible to tamper with votes.
+\item \textbf{Coercion-resistant}. The system should be able to prevent coercion of voters to vote in a certain way.
+\item \textbf{Verifiable}. Individuals must be able to verify their votes are included in the final tally. Also, anyone must be able to check the election results were computed correctly.
+\item \textbf{Auditable}. The whole process must enable a complete audit trail from the first user authentication through the final election.
+\item \textbf{Decentralized}. A trust-enabling and tamper-resistant blockchain voting system has to be decentralized by design.
+\item \textbf{Open source}. It has to be possible to examine code and to verify everything works correctly.
+\end{itemize}
 
 \subsection{Projects utilizing blockchain voting}
 Below is a short overview of existing research, organizations and implementations of blockchain based democracy applications.
 
 \subsubsection{Follow My Vote}
 Follow My Vote, formerly \enquote*{Vote DAC} [ERNEST~2014] is a distributed autonomous company (DAC) emerged from the Bitshares community. It's currenlty heavily developing a stake-weighted blockchain voting DAC by a team around Adam Kaleb Ernest [ERNEST~2016].
+
 \subsubsection{Public Votes}
 Public Votes is an Ethereum voting application designed and implemented by Dominik Schiener. Both his proposal [SCHIENER~2015A] and more recent analytics[SCHIENER~2015B] are highlighting advantages and issues arising with Ethereum and blockchain voting.
+
 \subsubsection{Bitmessage Vote}
-In 2014 Jesper Borgstrup wrote a master thesis on \enquote*{Private, trustless and decentralized message consensus and voting schemes} [BORGSTRUP~2014]. The protocol uses blockchain-technology and invertible bloom lookup tables for defining deadlines and timestamping of messages. Linkable ring signatures provide a scheme suitable for signing votes. A reference implementatoin is based on the PyBitmessage applicatoin.
+In~2014 Jesper Borgstrup wrote a master thesis on \enquote*{Private, trustless and decentralized message consensus and voting schemes} [BORGSTRUP~2014]. The protocol uses blockchain-technology and invertible bloom lookup tables for defining deadlines and timestamping of messages. Linkable ring signatures provide a scheme suitable for signing votes. A reference implementatoin is based on the PyBitmessage applicatoin.
+
+\subsubsection{Unchain Voting}
+
 \subsubsection{BitVote}
 BitVote is an Ethereum decentralized application (DApp) using encryption chains and a peer-to-peer hybrid technology for the purpose of proposal collaboration, information sharing and voting. There is a whitepaper draft available [OUDEN~2014].
+
 \subsubsection{Nemos.io}
 Developed by France's netparty, Nemos.io is a blockchain-proofed decision making tool based on Ethereum with eleminated gas costs.
+
 \subsubsection{Blockchain Apparatus}
 The Blockchain Apparatus aims to become a blockchain-secured voting machine.
+
 \subsubsection{Quadratic Voting $(V)^2$}
-$(V)^2$ emerged from the Ether.camp hackathon in december 2015 and developed a quadratic voting dapp based on the Ethereum network.
+$(V)^2$ emerged from the Ether.camp hackathon in~december~2015 and developed a quadratic voting dapp based on the Ethereum network.
+
+\subsubsection{E-Vox}
+
 \subsubsection{Democracy Earth}
 Democracy.earth is a follow-up project by Santiago Siri and Pia Mancini from DemocracyOS who relocated to the United States recently. The project is currently creating a community, recruiting enthusiasts and researching on blockchain voting and identity. No possible solutions have been published yet [MANCINI~et~al.~2015].\par
-DemocracyOS is a centralized web-application from Argentina which allows you to propose, debate and vote online. The team discussed blockchain integration back in 2015 twice [DEMOCRACYOS~2015A][DEMOCRACYOS~2015B]. An article on Newschallange contains first mockups which appear to use the Bitcoin blockchain for simple voting transactions [MANCINI~2015].
+DemocracyOS is a centralized web-application from Argentina which allows you to propose, debate and vote online. The team discussed blockchain integration back in~2015 twice [DEMOCRACYOS~2015A][DEMOCRACYOS~2015B]. An article on Newschallange contains first mockups which appear to use the Bitcoin blockchain for simple voting transactions [MANCINI~2015].
+
+\subsubsection{VoteFlux}
+
 \subsubsection{SureVoting}
 Students from the West Virginia University WVU, Ricky Kirkendall and Ankur Kumar, are currently creating SureVoting, a student government voting app for iPads. There is no concept or code released yet though [COYNE~2015].
+
 \subsubsection{VoteCoin}
 Votecoin is a proposal for a hash based voting technology. The whitepaper calls for a fair, transparent, practical solution but fails to deliver details on implementation [LEVEL~2014].
+
 \subsubsection{Agora Voting}
 AgoraVoting had the idea to add a distributed voting system on top their working solutions [ELVIRA~2013] but failed to raise the required development funds.
+
 \subsubsection{BitCongress}
 BitCongress claims to be a decentralized voting platform but is lacking references or source code, a whitepaper is available though [ROCKWELL~2014].
+
 \subsubsection{V-Initiative}
 V-Initiative proposed a decentralized voting app but the project seems dead already.
 
@@ -120,10 +166,31 @@ V-Initiative proposed a decentralized voting app but the project seems dead alre
 The team for Votesapp wants to provide a blueprint for a better democratic process and develop blockchain based tools which educate, inform, support the decision making. This paper is initialized by them and tries to connect the projects above by promoting an improved cross-initiatives collaboration.
 
 \section{General outline on key issues}
+Currently existing solutions are not robust enough to supplement current voting schemes. Most of them incur technical cost to understand crypto-currencies, are riddled with implementation issues and vulnaribilities or lack of decentralized idenitity proof [VARSHNEYA~et~al.~2015].\par
+The following chapter will focus on open issues arising with blockchain based electronic voting systems.
 
 \subsection{Architecture considerations}
+For reference, the Bitcoin blockchain size is -- at the time of writing -- 63 GiB in size and growing at a rate of around 3 GiB per month. The Ethereum blockchain is 12 GiB in size and groing at a rate of 1.5 GiB per month.\par
+This already introduces a technical and logistic entry barrier for users of blockchain technology. The trade-off in decentralized, transparent and trustless systems is that every participant in the network stores its own copy of all available data.\par
+Considering the \textit{inclusion} of every citizen in the world or a specific country in a blockchain voting process, one has to consider the different levels of both technological understanding of each person -- regardless of age, education, social and cultural background -- and access to technology supporting distributed ledgers. Idially, any device from smartwatches, through smartphones, notebooks or workstations should be able to participate in the blockchain voting process. But storing a full copy of an underlying blockchain is not always possible.\par
+A possible solution is the utilization of light nodes on small devices which connect to random full nodes on more dedicated devices. Full nodes store a copy the blockchain and are equal peers in the peer-to-peer network. They offer the highest degree of security as they can directly verify transactions, votes and election results. A network of full nodes directly connected to each other reaches the highest degree of decentralization and it's almost impossible to shut down or disrupt the network. Downsides of full nodes are the hugh space requirements for storing the full copy of the ledger and the very slow syncrhonization and verification process.\par
+Introducing a light-to-full-node communication can bypass the synchronization issues and disk space requirements. This can be done by connecting to random full nodes in the network via any kind of API which offers querying the blockchain on such clients. The disadvantage of such an architecture is the need of trust towards the full nodes as they could deliver tampered data. The light clients can not directly verify transactions, votes and elections as they have no copy of the blockchain to calculate own results. This is a drawback in decentralization and by disrupting the communication between light and full clients or by setting up malicious full nodes, this system introduces serious vulnarabilies.\par
+State-trie-pruning nodes might be the way to go as in most cases only the current state is interesting for the clients. This lowers space requirements and speeds up blockchain synchronization without introducing a gap of trust between nodes as seen with light client architectures. The only downside is the lack of the full state trie \textit{history}.
 
 \subsection{Blockchain voting scalability}
+Blockchain scalability is a hot debated topic right now. The Bitcoin blockchain has reached a state where almost each block in the network reached its maximum size of 1 MiB and on busy days the backlog of unconfirmed transactions piles up to several 10k transactions. The following scalability considerations will be made on a worst-case assumption which requires each vote to be a single signed transaction.
+\subsubsection{Bitcoin scalability}
+The Bitcoin block size limit is hardcoded at 1 MiB per block. The average block time is 10 minutes and the average transaction size to transfer funds is around 600 Bytes. This allows an average maximum of around 1748 transactions per block. With an average of 10 minutes per block there are 144 blocks per day. With the assumption that one vote is one transaction and the blockchain is not used by anything else but voting, this allows roughly 251,659 votes per day. Comparing that figure with numbers of registered voters in general elections around the world, one get's the idea what kind of limits this introduce. A big downside of Bitcoin is the unability to scale the number of transactions per time without introducing any network forks. Such solutions exist but there is no consensus on which solution to use. Currently Bitcoin does not scale.
+\subsubsection{Ethereum scalability}
+[SCHIENER~2015B] analyzed Ethereum blockchain voting and noticed that it would take around 40 days to hold the general elections of the United Kingdom on the Ethereum network. He gathered data from his own voting prototype which was not optimized regarding transaction size and also did not take into account that the block size is not fixed in Ethereum.\par
+The Ethereum network determines fees by utilizing \textit{Gas}. Each transaction costs a certain amount of gas and each block has a block gas limit which determines the maxium of gas which can be spent each block. The current default gas limit of the Ethereum network after the Homestead release in March 2016 is 4,712,388 gas per block. The minimum cost of a transaction -- most likely just for transferring funds -- is 21,000 gas. This allows around 225 transactions per block by default. The current average block time is 15 seconds. Therefore, the network generates around 5760 blocks per day. With the assumption that one vote is a transaction of minimal size and the network is not used for anything else, this allows to process 1,292,541 votes per day.\par
+But that's only the default network capacity. Referring to the Ethereum yellow paper equations 44-46, the block gas limit scales as follows [WOOD~2014]:
+\begin{eqnarray} \addtocounter{equation}{43}
+& & H_l < {P(H)_H}_l + \left\lfloor\frac{{P(H)_H}_l}{1024}\right\rfloor \quad \wedge \\
+& & H_l > {P(H)_H}_l - \left\lfloor\frac{{P(H)_H}_l}{1024}\right\rfloor \quad \wedge \\
+& & H_l \geqslant 125000
+\end{eqnarray}
+Simplyfied, this allows each block to grow by $\frac{1}{1024}$ in terms of block gas limit. This allows a theoretic maximum increase of the block size limite by factor 142 per day. Ethereum scales by design only limited by physical boundaries like bandwith and available disk space.
 
 \subsection{Transaction fees issue}
 
@@ -131,42 +198,47 @@ The team for Votesapp wants to provide a blueprint for a better democratic proce
 
 \subsection{Decentralized deadline consensus problem}
 
+\subsection{Voting coercion in distributed systems}
+
+\subsection{Power distribution with proof-of-work}
+
 \section{Outlook}
 
 \section{License}
 This paper is available in the public domain (CC0).
 
-\section{References}
-[BORGSTRUP~2014] Borgstrup, J (2014): Private, Trustless And Decentralized Message Consensus And Voting Schemes, Master's Thesis, 23 November~2014, University of Copenhagen, Denmark.\par
-[BUTERIN~2014] Buterin, V (2014): A Next-Generation Smart Contract And Decentralized Application Platform, Ethereum Whitepaper, 11 January~2014, Ethereum Project: http://vbuterin.com/ethereum.html\par
-[COYNE~2015] Cyone, C (2015): New Voting System Proposed For 2016 SGA Elections, The Daily Athenaeum, 19 November 2015, Morgantown, West Virginia, United States of America.\par
-[DEMOCRACYOS~2015A] Anonymous (2015): Blockchain support for DemocracyOS, DemocracyOS Blog, 19 March 2015, Buenos Aires, Argentina.\par
-[DEMOCRACYOS~2015B] Anonymous (2015): Why blockchain support for DemocracyOS, DemocracyOS Blog, 24 June 2015, Buenos Aires, Argentina.\par
-[ELVIRA~2013] Elvira, ER (2013): A Bitcoin Based, Completely Distributed Voting System, 28 November 2013, Agora Voting Blog, Madrid, Spain.\par
-[ÉPIÉ~et~al.~2015] Épié, C; Loubet, N (2015): Blockchain and Beyond, Version 1.0, 3 December~2015, Cellabz, Paris, France.\par
-[ERNEST~2014] Ernest, AK (2014): The Key To Unlocking Teh Black Box: Why The World Needs A Transparent Voting DAC, 04 July~2014, Follow My Vote, Blacksburg, Virginia, United States of America.\par
-[ERNEST~2016] Ernest, AK (2016): Follow My Vote, 26 January~2016, In: Report On Secure Voting, A Guide To Secure \#onlinevoting In Elections, Webroots Democracy, United Kingdom.\par
-[HOURT~2015A] Hourt, N (2015): End to End Verified Voting On A Blockchain, 3 September~2015, Follow My Vote, Youtube: https://youtu.be/EE2mWoio7po\par
-[HOURT~2015B] Hourt, N (2015): How Our Voter Registration Process Works, 16 December~2015, Follow My Vote, Youtube: https://youtu.be/GcAz9mZW1\_c\par
-[JOHNSTON~et~al.~2013] Johnston, DA; Yilmas, SO; Kandah, J; Bentenitis, N; Hashemi, F; Gross, R; Wilkinson S; Mason, S (2013): The Generalized Theory Of Decentralized Applications, DApps,~20 November~2013, DAppsFund, Austin, Texas, United States of America.\par
-[KAYE~2014] Kaye, M (2014): A First Attempt To Describe The Neutral Voting Bloc, 2 July~2014, FluxVote, Sydney, Australia.\par
-[KONASHEVYCH~2016] Konashevych, O (2016): What Are We Doing, 25 February~2016, E-Vox.org, Kiev, Ukraine.\par
-[LARIMER~2016] Larimer, D (2016): How To Build A Decentralized Application Without Fees, 10 February~2016, Bitshares, Blacksburg, Virginia, United States of America.\par
-[LEVEL~2014] Level, C (2014): VoteCoin, A fair, transparent, practical solution to fix modern voting, VoteCoin Blog, 9 December 2014, United States of America.\par
-[MANCINI~2015] Mancini, P (2015): Blockchain Support For Open Source Platform Democracyos, Newschallenge, 17 March 2015, San Francisco, California, United States of America.\par
+\section{Further Reading}
+[BORGSTRUP~2014] Borgstrup, J (2014): Private, Trustless And Decentralized Message Consensus And Voting Schemes, Master's Thesis, 23~November~2014, University of Copenhagen, Denmark.\par
+[BUTERIN~2014] Buterin, V (2014): A Next-Generation Smart Contract And Decentralized Application Platform, Ethereum Whitepaper, 11~January~2014, Ethereum Project: http://vbuterin.com/ethereum.html\par
+[COYNE~2015] Cyone, C (2015): New Voting System Proposed For~2016 SGA Elections, The Daily Athenaeum, 19~November~2015, Morgantown, West Virginia, United States of America.\par
+[DEMOCRACYOS~2015A] Anonymous (2015): Blockchain support for DemocracyOS, DemocracyOS Blog, 19~March~2015, Buenos Aires, Argentina.\par
+[DEMOCRACYOS~2015B] Anonymous (2015): Why blockchain support for DemocracyOS, DemocracyOS Blog, 24 June~2015, Buenos Aires, Argentina.\par
+[ELVIRA~2013] Elvira, ER (2013): A Bitcoin Based, Completely Distributed Voting System, 28~November~2013, Agora Voting Blog, Madrid, Spain.\par
+[ÉPIÉ~et~al.~2015] Épié, C; Loubet, N (2015): Blockchain and Beyond, Version 1.0, 3~December~2015, Cellabz, Paris, France.\par
+[ERFURT~2015] Erfurt, D (2015): Ein dezentrales Transitionssystem zur Manipulation von geteilten Wörtern einer regulären Sprache, Bachelor's Thesis, 25 June 2015, Humboldt University, Berlin, Germany.\par
+[ERFURT~2016] Erfurt, D (2016): Efficient Decentral Governance of Structured Data, Whitepaper, 21~March~2016, Berlin, Germany: http://memhub.io/whitepaper\par
+[ERNEST~2014] Ernest, AK (2014): The Key To Unlocking The Black Box: Why The World Needs A Transparent Voting DAC, 4~July~2014, Follow My Vote, Blacksburg, Virginia, United States of America.\par
+[ERNEST~2016] Ernest, AK (2016): Follow My Vote, 26~January~2016, In: Report On Secure Voting, A Guide To Secure \#onlinevoting In Elections, Webroots Democracy, United Kingdom.\par
+[HOURT~2015A] Hourt, N (2015): End to End Verified Voting On A Blockchain, 3~September~2015, Follow My Vote, Youtube: https://youtu.be/EE2mWoio7po\par
+[HOURT~2015B] Hourt, N (2015): How Our Voter Registration Process Works, 16~December~2015, Follow My Vote, Youtube: https://youtu.be/GcAz9mZW1\_c\par
+[JOHNSTON~et~al.~2013] Johnston, DA; Yilmas, SO; Kandah, J; Bentenitis, N; Hashemi, F; Gross, R; Wilkinson S; Mason, S (2013): The Generalized Theory Of Decentralized Applications, DApps,~20~November~2013, DAppsFund, Austin, Texas, United States of America.\par
+[KAYE~2014] Kaye, M (2014): A First Attempt To Describe The Neutral Voting Bloc, 2~July~2014, VoteFlux, Sydney, Australia.\par
+[KAYE~2016] Kaye, M (2016): Public VoteFlux Slack Channel Archive (\#general), 12~March~2016, VoteFlux, Sydney, Australia.\par
+[KONASHEVYCH~2016] Konashevych, O (2016): What Are We Doing, 25~February~2016, E-Vox.org, Kiev, Ukraine.\par
+[LARIMER~2016] Larimer, D (2016): How To Build A Decentralized Application Without Fees, 10~February~2016, Bitshares, Blacksburg, Virginia, United States of America.\par
+[LEVEL~2014] Level, C (2014): VoteCoin, A fair, transparent, practical solution to fix modern voting, VoteCoin Blog, 9~December~2014, United States of America.\par
+[MANCINI~2015] Mancini, P (2015): Blockchain Support For Open Source Platform Democracyos, Newschallenge, 17~March~2015, San Francisco, California, United States of America.\par
 [MANCINI~et~al.~2015] Mancini, P; Siri, S (2015): Democracy Earth, Power In Your Hands, A Decentralized Global Commons Of Peers, San Francisco, California, United States of America.\par
-[MONEGRO~2014] Monegro, J (2014): The Blockchain Application Stack, 25 November~2014, Union Square Ventures, New York, United States of America.\par
-[NAKAMOTO~2008] Nakamoto, S (2008): Bitcoin, A Peer-to-Peer Electronic Cash System, Bitcoin Whitepaper, 31 October~2008, Metzdowd Cryptography Mailing List: https://bitcoin.org/bitcoin.pdf\par
-[NOIZAT~2014] Noizat, P (2014): Blockchain Electronic Vote, Unchain.Voting Whitepaper, 30 July~2014, Paymium, Paris, France.\par
-[OUDEN~2014] Ouden, J (2014): BitVote, \enquote{A-Plan}, 11 June 2014, Eindhoven, Netherlands.\par
-[ROCKWELL~2014] Rockcoons \enquote{Rockwell}, M (2014): BitCongress, Whitepaper, Blockchain Based Voting System, 16 October~2014, Bitcoin Kinetics, Beaverton, Oregon, United States of America.\par
-[SCHIENER~2015A] Schiener, D (2015): Public Votes, Ethereum-based Voting Application, 28 October~2015, South Tyrol, Italy.\par
-[SCHIENER~2015B] Schiener, D (2015): Voting on the Ethereum Blockchain, An Analysis, 7 November~2015, South Tyrol, Italy.\par
-[SCOTT~2016] Scott, B (2016): How Can Cryptocurrency And Blockchain Technology Play A Role In Building Social And Solidarity Finance, Working Paper~2016-1, 25 February~2016, United Nations Research Institute for Social Development, Geneva, Switzerland.\par
-[VARSHNEYA~et~al.~2015] Varshneye, AJ; Poudel, S; Vyas, X (2015): Blockchain Voting, CS4501 Cryptocurrency Cabal, 07 December~2015, University of Virginia, United States of America.\par
-[WOOD~2014] Wood, G (2014): Ethereum, A Secure Decentralised Generalised Transaction Ledger, Ethereum Yellowpaper, 6 April~2014, Ethereum Project: http://gavwood.com/paper.pdf
-
+[MONEGRO~2014] Monegro, J (2014): The Blockchain Application Stack, 25~November~2014, Union Square Ventures, New York, United States of America.\par
+[NAKAMOTO~2008] Nakamoto, S (2008): Bitcoin, A Peer-to-Peer Electronic Cash System, Bitcoin Whitepaper, 31~October~2008, Metzdowd Cryptography Mailing List: https://bitcoin.org/bitcoin.pdf\par
+[NOIZAT~2014] Noizat, P (2014): Blockchain Electronic Vote, Unchain.Voting Whitepaper, 30~July~2014, Paymium, Paris, France.\par
+[OUDEN~2014] Ouden, J (2014): BitVote, \enquote{A-Plan}, 11 June~2014, Eindhoven, Netherlands.\par
+[ROCKWELL~2014] Rockcoons \enquote{Rockwell}, M (2014): BitCongress, Whitepaper, Blockchain Based Voting System, 16~October~2014, Bitcoin Kinetics, Beaverton, Oregon, United States of America.\par
+[SCHIENER~2015A] Schiener, D (2015): Public Votes, Ethereum-based Voting Application, 28~October~2015, South Tyrol, Italy.\par
+[SCHIENER~2015B] Schiener, D (2015): Voting on the Ethereum Blockchain, An Analysis, 7~November~2015, South Tyrol, Italy.\par
+[SCOTT~2016] Scott, B (2016): How Can Cryptocurrency And Blockchain Technology Play A Role In Building Social And Solidarity Finance, Working Paper~2016-1, 25~February~2016, United Nations Research Institute for Social Development, Geneva, Switzerland.\par
+[VARSHNEYA~et~al.~2015] Varshneye, AJ; Poudel, S; Vyas, X (2015): Blockchain Voting, CS4501 Cryptocurrency Cabal, 7~December~2015, University of Virginia, United States of America.\par
+[WOOD~2014] Wood, G (2014): Ethereum, A Secure Decentralised Generalised Transaction Ledger, Ethereum Yellowpaper, 6~April~2014, Ethereum Project: http://gavwood.com/paper.pdf
 
 \end{multicols}
-
 \end{document}
