@@ -99,7 +99,7 @@ At the cutting edge of the scene are smart contracts, small scripts on the block
 Among the most innovative blockchain 2.0 technologies of the recent years are \textsc{Bitshares (BTS)}, \textsc{Ripple (XRP)}, \textsc{Nxt (NXT)} and \textsc{Ethereum (ETH)}.\par % @TODO Stellar, Tendermint, Hyperledger
 Bitshares offers a stack of financial services including exchange and banking on a blockchain. It is mainly trageted at next-level financial applications and developed the concept of decentralized autonomous coorperations (\textsc{DAC}) which operate autonomous on the blockchain, issue tokes and payout shareholders as programmed.\par
 Ripple is a commercial solution for the financial technology sector. Its distributed financial technology allows for banks to directly transact with each other without the need for a central counterparty or correspondent.\par
-% @TODO Stellar, Tendermint, Hyperledger
+% @TODO check for relevance Stellar, Tendermint, Hyperledger
 Nxt improves the financial technology, crowdfunding and governance industries by providing powerful, modular toolsets to build any application on top of the blockchain.\par
 Blockchain 2.0 projects are often considered to pave the way for the \textit{Web 3.0} which will be decentralized. Ethereum claims to be \enquote{the way the internet was supposed to work}. \enquote{What Bitcoin does for payments, Ethereum does for anything that can be programmed.}, states Grace Caffyn from Coindesk referring to the underlying technology.\par
 %\begin{figure}[H]
@@ -138,138 +138,114 @@ Only applications fullfilling all points above should be considered for official
 \subsection{Projects utilizing blockchain voting}
 Below is a short overview of existing research, organizations and implementations of blockchain based democracy applications.
 
-%%%%\begin{table}[]
-%%%%\centering
-%%%%\caption{My caption}
-%%%%\label{my-label}
-%%%%\begin{tabular}{lllllllllllll}
-%%%%    & F & Ac & An & Aut & S & I & Cr & V & Aud & D & Os &   \\
-%%%%FMV & x & x  & x  & x   & x & x & x  & x & x   &   & x  & 9 \\
-%%%%BMV &   &    & x  &     & x & x &    & x &     & x & x  & 6 \\
-%%%%UV  &   &    &    & x   & x & x &    & x & x   & x &    & 6 \\
-%%%%PV  &   & x  & x  &     & x & x &    &   &     &   & x  & 5 \\
-%%%%N   &   &    &    &     &   &   &    &   &     &   &    &   \\
-%%%%BA  &   &    &    &     &   &   &    &   &     &   &    &   \\
-%%%%QV  &   &    &    &     &   &   &    &   &     &   &    &   \\
-%%%%BV  &   &    &    &     &   &   &    &   &     &   &    &   \\
-%%%%EV  &   &    &    &     &   &   &    &   &     &   &    &   \\
-%%%%VF  &   &    &    &     &   &   &    &   &     &   &    &   \\
-%%%%BC  &   &    &    &     &   &   &    &   &     &   &    & 0 \\
-%%%%DE  &   &    &    &     &   &   &    &   &     &   &    & 0 \\
-%%%%SV  &   &    &    &     &   &   &    &   &     &   &    & 0 \\
-%%%%VC  &   &    &    &     &   &   &    &   &     &   &    & 0 \\
-%%%%AV  &   &    &    &     &   &   &    &   &     &   &    & 0 \\
-%%%%VI  &   &    &    &     &   &   &    &   &     &   &    & 0
-%%%%\end{tabular}
-%%%%\end{table}
-%%%
-%%%\subsubsection{Follow My Vote}
-%%%Formerly \enquote*{Vote DAC}, Follow My Vote is a distributed autonomous company (\textsc{DAC}) emerged from the Bitshares community. It's currenlty heavily developing both a stake-weighted and a one-person-one-vote (\textsc{1p1v}) blockchain voting DAC by a team around Adam Kaleb Ernest [ERNEST~2016].\par
-%%%This is currently the most advanced project on creating a next generation voting platform. It utilizes the Bitshares blockchain with it's delegated proof-of-stake (\textsc{DPOS}) consensus mechanisms. The Vote DAC implements an end-to-end verified voting system which enables verified users to take part in transparent but private polls [ERNEST~2014].\par
-%%%An exact technical protocol specification is outstanding [VARSHNEYA~et~al.~2015] and can not be evaluated at the time of writing. Questions remain on why the whole project is designed as a coorporation which issues shares (10 billion VOTE tokens) [ERNEST~2014]. It might be a way to raise funds but having shares in a coorporation which allows voting by stake raises new issues: The most power has the user with the biggest stake.\par
-%%%In addition, the voter registration is onymous and depending on a centralized voter certification authority [VARSHNEYA~et~al.~2015]. However, blind signatures allow for maximum voting privacy on the blockchain [HOURT~2015B].\par
-%%%Checking against the requirements from section \ref{sec:req}, Follow My Vote scores 10/11 points for being fair, accessible, anonymous, authenticated, secure, integer, coercion resistant, verifiable, auditable and open source.
-%%%
-%%%\subsubsection{Bitmessage Vote}
-%%%In~2014 Jesper Borgstrup wrote a master's thesis on \enquote*{Private, trustless and decentralized message consensus and voting schemes} [BORGSTRUP~2014]. The protocol uses blockchain-technology and invertible bloom lookup tables for defining deadlines and timestamping of messages. Linkable ring signatures provide a scheme suitable for signing votes. A reference implementatoin is based on the PyBitmessage applicatoin.\par
-%%%He proposed a protocol to conduct anonymous, trustless, decentralized elections on the internet and mainly solved the decentralized deadline consensus issue by utilizing the Bitcoin blockchain technology to record timestamps. Multiple votes from the same voter are discarded. For elections, a list of public keys of registered voters has to exist in any form. Linkable ring signatures are used to ensure every vote comes from registered voters, the identity of voter can not be determined and double votes are easy detectable [BORGSTRUP~2014].\par
-%%%This implementation introduced issues regarding scalability. Only 8,000 voters can be registered per ballot which requires up to 2 GiB disk space. To vote, the bitmessage protocol requires a proof-of-work verification which takes up to two minutes per vote and increases in time with the number of voters. In addition, this implementation does not provide any solutions on voter authentication and the way lists of public keys are generated.\par
-%%%Checking against the requirements from section \ref{sec:req}, Bitmessage Vote scores 6/11 points for being anonymous, secure, integer, verifiable, decentralized and open source.
-%%%
-%%%\subsubsection{Unchain Voting}
-%%%One of the earliest blockchain voting implementations is Unchain Voting. It's build on top of the Bitcoin blockchain. Each electronic vote is a transaction and each voter recieves voting credits -- around 0.01 BTC -- to spend them on candidate recipients. Candidates generate Bitcoin vanity addresses to be easily recognizable. Organizers of the election distribute keys to the voters. The keys are hierarchical deterministic (HD) and each voter gets one key [NOIZAT~2014].\par
-%%%Checking against the requirements from section \ref{sec:req}, Unchain Voting scores 6/11 points for being authenticated, secure, integer, verifiable, auditable and open source.
-%%%
-%%%\subsubsection{Public Votes}
-%%%\label{sec:pubv}
-%%%Public Votes is an Ethereum voting application designed and implemented by Dominik Schiener. Both his proposal [SCHIENER~2015A] and more recent analytics[SCHIENER~2015B] are highlighting advantages and issues arising with Ethereum and blockchain voting.\par
-%%%The implementation utilizes a MeteorJS frontend, a MongoDB server backend and the Ethereum blockchain. It is provably fair, transparent and easy to use but should only be regarded as a proof-of-concept implementation since it is no decentralized application [SCHIENER~2015A].\par
-%%%The centralized backend is used to generate transactions and pay for the fees. In addition, the voting results will not only be stored in the Ethereum blockchain but in the MongoDB backend, to improve the overall website performance. The public record of the poll and the votes is an Ethereum smart contract on the blockchain written in Solidity [SCHIENER~2015A].\par
-%%%Flaws of this system are obvious. It is not decentralized by design, implements an IP based user \enquote*{authentication} which can be easily tampered with and the contract is not sybil attack proof as it could accept transactions from anywhere [SCHIENER~2015B].\par
-%%%Checking against the requirements from section \ref{sec:req}, Public Votes scores 5/11 points for being accessible, anonymous, secure, integer and open source.
-%%%
-%%%\subsubsection{Nemos}
-%%%Developed by France's netparty, Nemos is a blockchain-proved decision making tool based on Ethereum with eleminated gas costs [MARGOT-DUCLOT~2015]. % TODO
-%%%
-%%%% use blockchain tech to pave the way for new forms of political deliberation [MARGOT-DUCLOT~2015]
-%%%% nemos is a set of smart contracts to create an automated administrative framework [MARGOT-DUCLOT~2015]
-%%%% vote on anything political leaders, local decisions, legal documents, or other smart contracts [MARGOT-DUCLOT~2015]
-%%%% the first self-adapting distributed voting system [MARGOT-DUCLOT~2015]
-%%%% changes will be implemented immidiately [MARGOT-DUCLOT~2015]
-%%%% deploy new contracts automatically [MARGOT-DUCLOT~2015]
-%%%% users are contracts signed by members of the network and legally enforcable [MARGOT-DUCLOT~2015]
-%%%% nemos integrates encrypted id to register citizens not users [MARGOT-DUCLOT~2015]
-%%%% can produce hard law, legal value [MARGOT-DUCLOT~2015]
-%%%% traditionally, digital security, vote secrecy and transparency are mutually exclusive [MARGOT-DUCLOT~2015]
-%%%% blockchain elections provide strong answer to these three [MARGOT-DUCLOT~2015]
-%%%
-%%%\subsubsection{Blockchain Apparatus}
-%%%The Blockchain Apparatus aims to become a blockchain-secured voting machine.
-%%%
-%%%\subsubsection{Quadratic Voting $(V)^2$}
-%%%$(V)^2$ emerged from the Ether.camp hackathon in~december~2015 and developed a quadratic voting dapp based on the Ethereum network.
-%%%
-%%%
-%%%\subsubsection{BitVote}
-%%%BitVote suggests to be an Ethereum decentralized application (DApp) using encryption chains and a peer-to-peer hybrid technology for the purpose of proposal collaboration, information sharing and voting. There is a whitepaper draft available which was not completed in the recent two years [BALE~2014]. The reference implementation is far from complete and lacks a working blockchain integration.\par
-%%%Checking against the requirements from section \ref{sec:req}, BitVote scores 0/11 points since neither the code nor the whitepaper can be evaluated due to the lack of the most basic content.
-%%%
-%%%% bitvote vs bitvit [BALE~2014]
-%%%% vote with life time [BALE~2014]
-%%%% bits units of information, vits units of voting time [BALE~2014]
-%%%% 1 vit is 1 second in a life of a voter [BALE~2014]
-%%%% stop sopa internet blackout: 20 million users, 24 hours = 480 million vit-hours expressed against sopa (18th jan 2012) [BALE~2014]
-%%%% collect and record vits in decentralized universal ledger (ethereum) [BALE~2014]
-%%%% synchronized turing tests to catch sybil accounts [BALE~2014]
-%%%
-%%%\subsubsection{E-Vox}
-%%%% ukraine-based applications for voting/decision making [KONASHEVYCH~2016]
-%%%% primaries and other political processes [KONASHEVYCH~2016]
-%%%% e-petitions, local electronic plebiscites, electronic referendums [KONASHEVYCH~2016]
-%%%% voting for local councils/parliaments [KONASHEVYCH~2016]
-%%%% developed on blockchain by ambisafe/vareger group [KONASHEVYCH~2016]
-%%%% blockchain transactions carrie voting decision [KONASHEVYCH~2016]
-%%%% signed with digital signature legally recognaized in the ukraine [KONASHEVYCH~2016]
-%%%% implementing multiple e-democracy projects [KONASHEVYCH~2016]
-%%%% test case in vyshhorod [KONASHEVYCH~2016]
-%%%
-%%%\subsubsection{VoteFlux}
-%%%% neutral voting block, australia (localized solution)
-%%%% no absolute control over the voting system [KAYE~2014]
-%%%% run on a distributed public network [KAYE~2014]
-%%%% able to be verified by everyone, everywhere, constantly, and consistently [KAYE~2014]
-%%%% bitcoin blockchain because security is magnitudes better than next best [KAYE~2016]
-%%%% proof of identity via electoral roll (lists the names and addresses of everyone who’s registered to vote) [KAYE~2016]
-%%%% protocol involves tokens minted by issue, able to be transfered. basic income style underlying token that doesnt expire with each issue, and has constant inflation, provides liquidity between vote tokens and anti spam measures, standard units are points as in percentage, not discreete units, "political points" [KAYE~2016]
-%%%% flux requires 1 trx per 10 minutes, using a merkele tree and ipfs [KAYE~2016]
-%%%% everything is done by OP_RETURN txs and byte strings [KAYE~2016]
-%%%% liquid democracy, moved to get-swap-vote [KAYE~2016]
-%%%% identity checked against australian electoral commision roll [KAYE~2016]
-%%%% all people who are empowered recieve N*1000000 (1M to keep it within integer maths) [KAYE~2016]
-%%%% using the blockchain just to commit data
-%%%% purely using it for the security properties, as much as possible is offchain
-%%%
-%%%\subsubsection{BitCongress}
-%%%BitCongress claims to be a decentralized voting platform but is lacking references or source code, a whitepaper is available though. It proposes to use the Bitcoin blockchain for it's proof-of-work security, \textsc{Counterparty (XCP)} assets for crowdfunding and Ethereum contracts for unknown reasons [ROCKWELL~2014].\par
-%%%This is not sybil attack proof as anyone can register to become a voter and introduces issues with 3 blockchain dependencies by design. In addition, votes can be traded like any other token and could be easily shared or sold [VARSHNEYA~et~al.~2015].\par
-%%%The initial XCP crowdsale never happened in two years and this project is therefore to be considered dead. It can not be checked against the requirements in section \ref{sec:req} and scores 0/11.
-%%%
-%%%\subsubsection{Democracy Earth}
-%%%Democracy.earth is a follow-up project by Santiago Siri and Pia Mancini from DemocracyOS who relocated to the United States recently. The project is currently creating a community, recruiting enthusiasts and researching on blockchain voting and identity. No possible solutions have been published yet [MANCINI~et~al.~2015].\par
-%%%DemocracyOS is a centralized web-application from Argentina which allows you to propose, debate and vote online. The team discussed blockchain integration back in~2015 twice [DEMOCRACYOS~2015A][DEMOCRACYOS~2015B]. An article on Newschallange contains first mockups which appear to use the Bitcoin blockchain for simple voting transactions [MANCINI~2015].\par
-%%%Not much more can be found and therefore, it can not be checked against the requirements in section \ref{sec:req} and scores 0/11.
-%%%
-%%%\subsubsection{SureVoting}
-%%%Students from the West Virginia University WVU, Ricky Kirkendall and Ankur Kumar, are currently creating SureVoting, a student government voting app for iPads. There is no concept or code released yet though [COYNE~2015]. It can not be checked against the requirements in section \ref{sec:req} and scores 0/11.
-%%%
-%%%\subsubsection{VoteCoin}
-%%%Votecoin is a proposal for a hash based voting technology. The whitepaper calls for a fair, transparent, practical solution but fails to deliver conceptual details or a working implementation [LEVEL~2014]. It can not be checked against the requirements in section \ref{sec:req} and scores 0/11.
-%%%
-%%%\subsubsection{Agora Voting}
-%%%AgoraVoting had the idea to add a distributed voting system on top their working solutions [ELVIRA~2013] but failed to raise the required development funds. Due to the lack of specification and implementation, it can not be checked against the requirements in section \ref{sec:req} and scores 0/11.
-%%%
-%%%\subsubsection{V-Initiative}
-%%%V-Initiative proposed a decentralized voting app but the project seems dead since the website is partially unreachable. It therefore can not be checked against the requirements in section \ref{sec:req} and scores 0/11.
+
+\subsubsection{Follow My Vote}
+Formerly \enquote*{Vote DAC}, Follow My Vote is a distributed autonomous company (\textsc{DAC}) emerged from the Bitshares community. It's currenlty heavily developing both a stake-weighted and a one-person-one-vote (\textsc{1p1v}) blockchain voting DAC by a team around Adam Kaleb Ernest [ERNEST~2016].\par
+This is currently the most advanced project on creating a next generation voting platform. It utilizes the Bitshares blockchain with it's delegated proof-of-stake (\textsc{DPOS}) consensus mechanisms. The Vote DAC implements an end-to-end verified voting system which enables verified users to take part in transparent but private polls [ERNEST~2014].\par
+An exact technical protocol specification is outstanding [VARSHNEYA~et~al.~2015] and can not be evaluated at the time of writing. Questions remain on why the whole project is designed as a coorporation which issues shares (10 billion VOTE tokens) [ERNEST~2014]. It might be a way to raise funds but having shares in a coorporation which allows voting by stake raises new issues: The most power has the user with the biggest stake.\par
+In addition, the voter registration is onymous and depending on a centralized voter certification authority [VARSHNEYA~et~al.~2015]. However, blind signatures allow for maximum voting privacy on the blockchain [HOURT~2015B].\par
+Checking against the requirements from section \ref{sec:req}, Follow My Vote scores 10/11 points for being fair, accessible, anonymous, authenticated, secure, integer, coercion resistant, verifiable, auditable and open source.
+
+\subsubsection{Bitmessage Vote}
+In~2014 Jesper Borgstrup wrote a master's thesis on \enquote*{Private, trustless and decentralized message consensus and voting schemes} [BORGSTRUP~2014]. The protocol uses blockchain-technology and invertible bloom lookup tables for defining deadlines and timestamping of messages. Linkable ring signatures provide a scheme suitable for signing votes. A reference implementatoin is based on the PyBitmessage applicatoin.\par
+He proposed a protocol to conduct anonymous, trustless, decentralized elections on the internet and mainly solved the decentralized deadline consensus issue by utilizing the Bitcoin blockchain technology to record timestamps. Multiple votes from the same voter are discarded. For elections, a list of public keys of registered voters has to exist in any form. Linkable ring signatures are used to ensure every vote comes from registered voters, the identity of voter can not be determined and double votes are easy detectable [BORGSTRUP~2014].\par
+This implementation introduced issues regarding scalability. Only 8,000 voters can be registered per ballot which requires up to 2 GiB disk space. To vote, the bitmessage protocol requires a proof-of-work verification which takes up to two minutes per vote and increases in time with the number of voters. In addition, this implementation does not provide any solutions on voter authentication and the way lists of public keys are generated.\par
+Checking against the requirements from section \ref{sec:req}, Bitmessage Vote scores 6/11 points for being anonymous, secure, integer, verifiable, decentralized and open source.
+
+\subsubsection{Unchain Voting}
+One of the earliest blockchain voting implementations is Unchain Voting. It's build on top of the Bitcoin blockchain. Each electronic vote is a transaction and each voter recieves voting credits -- around 0.01 BTC -- to spend them on candidate recipients. Candidates generate Bitcoin vanity addresses to be easily recognizable. Organizers of the election distribute keys to the voters. The keys are hierarchical deterministic (HD) and each voter gets one key [NOIZAT~2014].\par
+Checking against the requirements from section \ref{sec:req}, Unchain Voting scores 6/11 points for being authenticated, secure, integer, verifiable, auditable and open source.
+
+\subsubsection{Public Votes}
+\label{sec:pubv}
+Public Votes is an Ethereum voting application designed and implemented by Dominik Schiener. Both his proposal [SCHIENER~2015A] and more recent analytics[SCHIENER~2015B] are highlighting advantages and issues arising with Ethereum and blockchain voting.\par
+The implementation utilizes a MeteorJS frontend, a MongoDB server backend and the Ethereum blockchain. It is provably fair, transparent and easy to use but should only be regarded as a proof-of-concept implementation since it is no decentralized application [SCHIENER~2015A].\par
+The centralized backend is used to generate transactions and pay for the fees. In addition, the voting results will not only be stored in the Ethereum blockchain but in the MongoDB backend, to improve the overall website performance. The public record of the poll and the votes is an Ethereum smart contract on the blockchain written in Solidity [SCHIENER~2015A].\par
+Flaws of this system are obvious. It is not decentralized by design, implements an IP based user \enquote*{authentication} which can be easily tampered with and the contract is not sybil attack proof as it could accept transactions from anywhere [SCHIENER~2015B].\par
+Checking against the requirements from section \ref{sec:req}, Public Votes scores 5/11 points for being accessible, anonymous, secure, integer and open source.
+
+\subsubsection{Nemos}
+Developed by France's netparty, Nemos is a blockchain-proved decision making tool based on Ethereum with eleminated gas costs [MARGOT-DUCLOT~2015]. % TODO
+
+% use blockchain tech to pave the way for new forms of political deliberation [MARGOT-DUCLOT~2015]
+% nemos is a set of smart contracts to create an automated administrative framework [MARGOT-DUCLOT~2015]
+% vote on anything political leaders, local decisions, legal documents, or other smart contracts [MARGOT-DUCLOT~2015]
+% the first self-adapting distributed voting system [MARGOT-DUCLOT~2015]
+% changes will be implemented immidiately [MARGOT-DUCLOT~2015]
+% deploy new contracts automatically [MARGOT-DUCLOT~2015]
+% users are contracts signed by members of the network and legally enforcable [MARGOT-DUCLOT~2015]
+% nemos integrates encrypted id to register citizens not users [MARGOT-DUCLOT~2015]
+% can produce hard law, legal value [MARGOT-DUCLOT~2015]
+% traditionally, digital security, vote secrecy and transparency are mutually exclusive [MARGOT-DUCLOT~2015]
+% blockchain elections provide strong answer to these three [MARGOT-DUCLOT~2015]
+
+\subsubsection{Blockchain Apparatus}
+The Blockchain Apparatus aims to become a blockchain-secured voting machine.
+
+\subsubsection{Quadratic Voting $(V)^2$}
+$(V)^2$ emerged from the Ether.camp hackathon in~december~2015 and developed a quadratic voting dapp based on the Ethereum network.
+
+
+\subsubsection{BitVote}
+BitVote suggests to be an Ethereum decentralized application (DApp) using encryption chains and a peer-to-peer hybrid technology for the purpose of proposal collaboration, information sharing and voting. There is a whitepaper draft available which was not completed in the recent two years [BALE~2014]. The reference implementation is far from complete and lacks a working blockchain integration.\par
+Checking against the requirements from section \ref{sec:req}, BitVote scores 0/11 points since neither the code nor the whitepaper can be evaluated due to the lack of the most basic content.
+
+% bitvote vs bitvit [BALE~2014]
+% vote with life time [BALE~2014]
+% bits units of information, vits units of voting time [BALE~2014]
+% 1 vit is 1 second in a life of a voter [BALE~2014]
+% stop sopa internet blackout: 20 million users, 24 hours = 480 million vit-hours expressed against sopa (18th jan 2012) [BALE~2014]
+% collect and record vits in decentralized universal ledger (ethereum) [BALE~2014]
+% synchronized turing tests to catch sybil accounts [BALE~2014]
+
+\subsubsection{E-Vox}
+% ukraine-based applications for voting/decision making [KONASHEVYCH~2016]
+% primaries and other political processes [KONASHEVYCH~2016]
+% e-petitions, local electronic plebiscites, electronic referendums [KONASHEVYCH~2016]
+% voting for local councils/parliaments [KONASHEVYCH~2016]
+% developed on blockchain by ambisafe/vareger group [KONASHEVYCH~2016]
+% blockchain transactions carrie voting decision [KONASHEVYCH~2016]
+% signed with digital signature legally recognaized in the ukraine [KONASHEVYCH~2016]
+% implementing multiple e-democracy projects [KONASHEVYCH~2016]
+% test case in vyshhorod [KONASHEVYCH~2016]
+
+\subsubsection{VoteFlux}
+% neutral voting block, australia (localized solution)
+% no absolute control over the voting system [KAYE~2014]
+% run on a distributed public network [KAYE~2014]
+% able to be verified by everyone, everywhere, constantly, and consistently [KAYE~2014]
+% bitcoin blockchain because security is magnitudes better than next best [KAYE~2016]
+% proof of identity via electoral roll (lists the names and addresses of everyone who’s registered to vote) [KAYE~2016]
+% protocol involves tokens minted by issue, able to be transfered. basic income style underlying token that doesnt expire with each issue, and has constant inflation, provides liquidity between vote tokens and anti spam measures, standard units are points as in percentage, not discreete units, "political points" [KAYE~2016]
+% flux requires 1 trx per 10 minutes, using a merkele tree and ipfs [KAYE~2016]
+% everything is done by OP_RETURN txs and byte strings [KAYE~2016]
+% liquid democracy, moved to get-swap-vote [KAYE~2016]
+% identity checked against australian electoral commision roll [KAYE~2016]
+% all people who are empowered recieve N*1000000 (1M to keep it within integer maths) [KAYE~2016]
+% using the blockchain just to commit data
+% purely using it for the security properties, as much as possible is offchain
+
+\subsubsection{BitCongress}
+BitCongress claims to be a decentralized voting platform but is lacking references or source code, a whitepaper is available though. It proposes to use the Bitcoin blockchain for it's proof-of-work security, \textsc{Counterparty (XCP)} assets for crowdfunding and Ethereum contracts for unknown reasons [ROCKWELL~2014].\par
+This is not sybil attack proof as anyone can register to become a voter and introduces issues with 3 blockchain dependencies by design. In addition, votes can be traded like any other token and could be easily shared or sold [VARSHNEYA~et~al.~2015].\par
+The initial XCP crowdsale never happened in two years and this project is therefore to be considered dead. It can not be checked against the requirements in section \ref{sec:req} and scores 0/11.
+
+\subsubsection{Democracy Earth}
+Democracy.earth is a follow-up project by Santiago Siri and Pia Mancini from DemocracyOS who relocated to the United States recently. The project is currently creating a community, recruiting enthusiasts and researching on blockchain voting and identity. No possible solutions have been published yet [MANCINI~et~al.~2015].\par
+DemocracyOS is a centralized web-application from Argentina which allows you to propose, debate and vote online. The team discussed blockchain integration back in~2015 twice [DEMOCRACYOS~2015A][DEMOCRACYOS~2015B]. An article on Newschallange contains first mockups which appear to use the Bitcoin blockchain for simple voting transactions [MANCINI~2015].\par
+Not much more can be found and therefore, it can not be checked against the requirements in section \ref{sec:req} and scores 0/11.
+
+\subsubsection{SureVoting}
+Students from the West Virginia University WVU, Ricky Kirkendall and Ankur Kumar, are currently creating SureVoting, a student government voting app for iPads. There is no concept or code released yet though [COYNE~2015]. It can not be checked against the requirements in section \ref{sec:req} and scores 0/11.
+
+\subsubsection{VoteCoin}
+Votecoin is a proposal for a hash based voting technology. The whitepaper calls for a fair, transparent, practical solution but fails to deliver conceptual details or a working implementation [LEVEL~2014]. It can not be checked against the requirements in section \ref{sec:req} and scores 0/11.
+
+\subsubsection{Agora Voting}
+AgoraVoting had the idea to add a distributed voting system on top their working solutions [ELVIRA~2013] but failed to raise the required development funds. Due to the lack of specification and implementation, it can not be checked against the requirements in section \ref{sec:req} and scores 0/11.
+
+\subsubsection{V-Initiative}
+V-Initiative proposed a decentralized voting app but the project seems dead since the website is partially unreachable. It therefore can not be checked against the requirements in section \ref{sec:req} and scores 0/11.
 
 \subsection{Scope for Votesapp}
 The team for Votesapp wants to provide a blueprint for a better democratic process and develop blockchain based tools which educate, inform, support the decision making. This paper is initialized by them and tries to connect the projects above by promoting an improved cross-initiatives collaboration.
@@ -412,7 +388,7 @@ Rootstock, which builds a smart contract platform on top of the Bitcoin platform
 % equal distribution of power, control
 
 \section{Outlook}
-% to do
+% todo
 
 \section{License}
 This paper is available in the public domain (CC0).
