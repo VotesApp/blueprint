@@ -12,7 +12,8 @@
 \usepackage{array}
 \usepackage{verbatim}
 \usepackage{caption}
-\usepackage{natbib}
+\usepackage[backend=biber,style=authoryear]{biblatex}
+\addbibresource{literature.bib}
 \usepackage{float}
 \usepackage{pdflscape}
 \usepackage{mathtools}
@@ -77,7 +78,9 @@
 \input{inc/blueprint.4.issues.inc}
 \input{inc/blueprint.5.outlook.inc}
 \input{inc/blueprint.6.license.inc}
-\input{inc/blueprint.7.literature.inc}
 
 \end{multicols}
+
+\printbibliography
+
 \end{document}
